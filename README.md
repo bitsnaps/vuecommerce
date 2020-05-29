@@ -1,4 +1,7 @@
-# vuecommerce2
+# VueCommerce
+
+This is not a full eCommerce platform, this is just a simple eShop UI using: Vue, Vuex, Vue-Router, Vuetify.
+Inspired from: https://github.com/crisgon/vue-cart
 
 ## Project setup
 ```
