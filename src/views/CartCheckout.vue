@@ -2,7 +2,7 @@
   <div class="checkout-box">
     <ul class="checkout-list">
       <li v-for="(product, index) in getProductsInCart" :key="index" class="checkout-product">
-        <img :src="product.image" alt="" class="product-image">
+        <Thumbnail :image="product.image" class="product-image" />
         <h3 class="product-name">{{ product.name }}</h3>
         <span class="product-price">R$ {{ product.price }},00 </span>
         <button class="product-remove" @click="remove(index)">X</button>
@@ -20,8 +20,10 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import Thumbnail from '@/components/Thumbnail'
 
 export default {
+  components: { Thumbnail },
   computed: {
     ...mapGetters([
       'getProductsInCart',

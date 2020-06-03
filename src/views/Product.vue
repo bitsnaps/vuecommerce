@@ -6,11 +6,10 @@
       <v-row justify="space-between">
         <v-col cols="auto">
 
-          <v-img
-            height="200"
-            width="200"
-            :src="currentProduct.image"
-          ></v-img>
+          <Thumbnail :image="currentProduct.image"
+          height="200"
+          width="200" />
+          
         </v-col>
 
         <v-col
@@ -93,10 +92,12 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import Thumbnail from '@/components/Thumbnail';
 
 
 export default {
   components: {
+    Thumbnail
   },
   data() {
     return {

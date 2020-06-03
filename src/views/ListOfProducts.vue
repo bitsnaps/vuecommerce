@@ -1,12 +1,12 @@
 <template>
+  <div class="list-products">
+
   <ul class="listOfProducts">
 
     <v-card v-for="(product, index) in products" :key="index" class="mx-auto my-12"
      max-width="300" outlined>
-     <v-img
-       v-if="product.image"
-       height="auto"
-       :src="product.image" lazy-src/>
+
+     <Thumbnail :image="product.image" />
 
       <v-card-title>
         <router-link to="/product-details">
@@ -60,15 +60,18 @@
     </v-card>
 
   </ul>
+  </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
+import Thumbnail from '@/components/Thumbnail'
 
 export default {
   props: ['products'],
 
   components: {
+    Thumbnail
   },
   methods: {
     ...mapActions([
