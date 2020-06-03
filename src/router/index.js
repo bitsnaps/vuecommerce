@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import AllProducts from '../components/AllProducts';
-import AllSmartphones from '../components/AllSmartphones';
-import AllNotebooks from '../components/AllNotebooks';
-import Product from '../components/Product';
-import CartCheckout from '../components/CartCheckout';
+import AllProducts from '@/views/AllProducts';
+import AllSmartphones from '@/views/AllSmartphones';
+import AllNotebooks from '@/views/AllNotebooks';
+import Product from '@/views/Product';
+import CartCheckout from '@/views/CartCheckout';
 // import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)

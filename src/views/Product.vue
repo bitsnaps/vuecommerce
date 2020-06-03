@@ -1,5 +1,6 @@
 <template>
 
+<div>
   <v-card class="mx-auto my-12" max-width="800" outlined>
     <v-container>
       <v-row justify="space-between">
@@ -45,7 +46,7 @@
                 Buy Now
               </v-btn>
               <v-btn color="info"
-                  @click.native="openModal()">
+                  @click.native="dialog = true">
                 More Info
               </v-btn>
             </v-col>
@@ -57,44 +58,51 @@
     </v-container>
 
     <v-card-actions>
-      <modal>{{ currentProduct.details }}</modal>
+      {{ currentProduct.details }}
     </v-card-actions>
 
   </v-card>
 
-  <!-- <div class="product-box">
-    <div class="product-image">
-      <img :src="currentProduct.image" alt="">
-      <stars :rate="rated(currentProduct.stars)" :totalReviews="currentProduct.totalReviews"/>
-    </div>
-    <div class="product-info">
-      <h2 class="product-title">{{ currentProduct.name }}</h2>
-      <span class="product-price">R$ {{ currentProduct.price }}, 00</span>
-      <v-btn color="sucess" :cartIcon="true"
-      @click.native="addProductToCart(currentProduct)">
-        Buy Now
-      </v-btn>
-      <v-btn color="info"
-          @click.native="openModal()">
-        More Info
-      </v-btn>
-    </div>
-    <modal>{{ currentProduct.details }}</modal>
-  </div> -->
+  <v-dialog v-model="dialog" max-width="600px">
+    <v-card>
+      <v-card-title>
+        <span class="headline">{{ currentProduct.name }}</span>
+      </v-card-title>
+
+      <v-card-text>
+        <v-container>
+          <v-row>
+            {{ currentProduct.details }}
+          </v-row>
+        </v-container>
+
+      </v-card-text>
+
+      <v-card-actions>
+        <v-spacer></v-spacer>
+        <v-btn color="primary" dark @click.stop="dialog = false">
+          Close
+        </v-btn>
+
+      </v-card-actions>
+    </v-card>
+  </v-dialog>
+</div>
 
 </template>
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-// import stars from './Stars';
-import modal from './Modal';
+
 
 export default {
   components: {
-    // stars,
-    modal,
   },
-
+  data() {
+    return {
+      dialog: false
+    }
+  },
   computed: {
     ...mapGetters({
       currentProduct: 'getCurrentProduct',
@@ -111,50 +119,12 @@ export default {
     },
     rated(rate) {
       return `${rate * 20}%`;
-    },
-    openModal() {
-      this.showOrHiddenModal();
-    },
+    }
   },
 
 };
 </script>
 
 <style scoped>
-/*
-  .product-box {
-    width: 800px;
-    height: 400px;
-    margin: 50px auto;
-    box-sizing: border-box;
-    padding: 1.5em;
-    background-color: #fff;
-    border-radius: 7px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
 
-  .product-image {
-    width: 300px;
-  }
-
-  .product-info {
-    width: 400px;
-    align-self: flex-start;
-  }
-
-  .product-title {
-    font-weight: normal;
-  }
-
-  .product-price {
-    font-size: 2em;
-    font-weight: bolder;
-  }
-
-  .product-box button {
-    width: 300px;
-    margin: .3em 0;
-  }*/
 </style>

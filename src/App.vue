@@ -70,7 +70,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import MainMenu from './components/Menu';
+import MainMenu from '@/components/Menu';
 
 export default {
   name: 'App',
