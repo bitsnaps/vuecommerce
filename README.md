@@ -22,6 +22,9 @@ npm run build
 ```
 npm run lint
 ```
+### Screenshot
+![Screenshot](screenshot.png?raw=true "Smartphones view")
+
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
